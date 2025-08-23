@@ -49,9 +49,11 @@ root@mzcydev:~# cat projects.txt
 - Experimenting with distributed caching & scalable plugin infrastructures
 ```
 
+<!-- STATS-START -->
 ```bash
 root@mzcydev:~# ./github-stats.sh
 ```
+<!-- STATS-END -->
 
 <!-- REPOS-START -->
 ```bash

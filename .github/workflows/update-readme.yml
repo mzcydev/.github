@@ -22,6 +22,20 @@ jobs:
       
           # ganzen Block zwischen den Markern ersetzen (Marker bleiben unsichtbar, weil außerhalb des Codeblocks)
           sed -i "/<!-- UPTIME-START -->/,/<!-- UPTIME-END -->/c\<!-- UPTIME-START -->\n\`\`\`bash\nroot@mzcydev:~# uptime\n$LINE\n\`\`\`\n<!-- UPTIME-END -->" README.md
+      - name: Update repos in README
+        run: |
+          # Hole die 5 meist-gepushten Repos von deinem Account via GitHub API
+          REPOS=$(curl -s "https://api.github.com/users/mzcydev/repos?per_page=5&sort=pushed" \
+            | jq -r '.[].name' | head -n 5)
+      
+          DATE=$(date +"%b %d")
+          OUTPUT=""
+          for R in $REPOS; do
+            OUTPUT="$OUTPUT\ndrwxr-xr-x  2 mzcydev dev 4.0K $DATE  $R"
+          done
+      
+          # Block im README ersetzen
+          sed -i "/<!-- REPOS-START -->/,/<!-- REPOS-END -->/c\<!-- REPOS-START -->\n\`\`\`bash\nroot@mzcydev:~# ls -lah ~/repos/\n$OUTPUT\n\`\`\`\n<!-- REPOS-END -->" README.md
 
       - name: Commit changes
         run: |

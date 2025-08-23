@@ -13,6 +13,8 @@
 root@mzcydev:~# whoami
 mzcydev (he/him)
 
+root@mzcydev:~# uptime
+
 root@mzcydev:~# cat about.txt
 - IT-Systemelektroniker · Application Developer
 - Based in Germany 🇩🇪

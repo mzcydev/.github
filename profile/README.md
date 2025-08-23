@@ -17,7 +17,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 13:37:42 up 1734 days,  214 commits,  load average: 0.42, 0.33, 0.12
+ 11:42:31 up 3156 days,  822 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -51,10 +51,12 @@ root@mzcydev:~# ./github-stats.sh
 <!-- REPOS-START -->
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  NextCore
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  NextPluginMessaging
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  SkyMythDE
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  SkySlayer
+
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  ByteStorm
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  CrownCore
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  wiki-platform
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  Brick-and-Bread-Inc
 ```
 <!-- REPOS-END -->
 

@@ -1,47 +1,65 @@
-name: Update README uptime
+name: Update Profile README (uptime + repos)
 
 on:
   schedule:
-    - cron: "0 * * * *"   # jede Stunde
-  workflow_dispatch:      # manuelles Triggern möglich
+    - cron: "0 */6 * * *"   # alle 6 Stunden
+  workflow_dispatch:
+
+permissions:
+  contents: write   # wichtig für push!
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate uptime
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Update uptime block
         run: |
-          START_DATE="2017-01-01 00:00:00"
+          FILE=".github/profile/README.md"
+
+          START_DATE="2020-01-01 00:00:00"
+          COMMITS="214"   # optional fix oder dynamisch
+          LOAD="0.42, 0.33, 0.12"
+
           NOW=$(date -u +"%s")
           START=$(date -u -d "$START_DATE" +"%s")
           DAYS=$(( (NOW - START) / 86400 ))
-          LINE=" $(date +%H:%M:%S) up ${DAYS} days,  214 commits,  load average: 0.42, 0.33, 0.12"
-      
-          # ganzen Block zwischen den Markern ersetzen (Marker bleiben unsichtbar, weil außerhalb des Codeblocks)
-          sed -i "/<!-- UPTIME-START -->/,/<!-- UPTIME-END -->/c\<!-- UPTIME-START -->\n\`\`\`bash\nroot@mzcydev:~# uptime\n$LINE\n\`\`\`\n<!-- UPTIME-END -->" README.md
-      - name: Update repos in README
+          LINE=" $(date +%H:%M:%S) up ${DAYS} days,  ${COMMITS} commits,  load average: ${LOAD}"
+
+          sed -i "/<!-- UPTIME-START -->/,/<!-- UPTIME-END -->/c\<!-- UPTIME-START -->\n\`\`\`bash\nroot@mzcydev:~# uptime\n$LINE\n\`\`\`\n<!-- UPTIME-END -->" "$FILE"
+
+      - name: Update repos block
+        env:
+          GH_USER: mzcydev
         run: |
-          # Hole die 5 meist-gepushten Repos von deinem Account via GitHub API
-          REPOS=$(curl -s "https://api.github.com/users/mzcydev/repos?per_page=5&sort=pushed" \
-            | jq -r '.[].name' | head -n 5)
-      
+          FILE=".github/profile/README.md"
+
+          JSON=$(curl -s "https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed")
+          NAMES=$(echo "$JSON" | jq -r '.[].name' | head -n 5)
+
           DATE=$(date +"%b %d")
           OUTPUT=""
-          for R in $REPOS; do
-            OUTPUT="$OUTPUT\ndrwxr-xr-x  2 mzcydev dev 4.0K $DATE  $R"
-          done
-      
-          # Block im README ersetzen
-          sed -i "/<!-- REPOS-START -->/,/<!-- REPOS-END -->/c\<!-- REPOS-START -->\n\`\`\`bash\nroot@mzcydev:~# ls -lah ~/repos/\n$OUTPUT\n\`\`\`\n<!-- REPOS-END -->" README.md
+          while IFS= read -r R; do
+            [ -z "$R" ] && continue
+            OUTPUT="${OUTPUT}\ndrwxr-xr-x  2 ${GH_USER} dev 4.0K ${DATE}  ${R}"
+          done <<< "$NAMES"
 
-      - name: Commit changes
+          if [ -z "$OUTPUT" ]; then
+            OUTPUT="\ndrwxr-xr-x  2 ${GH_USER} dev 4.0K ${DATE}  README.md"
+          fi
+
+          sed -i "/<!-- REPOS-START -->/,/<!-- REPOS-END -->/c\<!-- REPOS-START -->\n\`\`\`bash\nroot@${GH_USER}:~# ls -lah ~/repos/\n$OUTPUT\n\`\`\`\n<!-- REPOS-END -->" "$FILE"
+
+      - name: Commit & push
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "Update uptime" || echo "No changes to commit"
-          git push || true
-
+          git add .github/profile/README.md
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "chore: auto-update uptime & repos"
+          git push

@@ -1,30 +1,43 @@
-# mzcydev
+<!-- Profile README for mzcydev -->
 
-> *"I make, bake and break software."*
 
-## 👋 About me
-* 💻 IT-Systemelektroniker · Application Developer
-* 🇩🇪 Based in Germany
-* 🎮 Minecraft plugin & server software enthusiast
-* 🛠 Core maintainer at [NextForge-Development](https://github.com/NextForge-Development)
-* 🔍 Always hunting bugs – and eliminating them mercilessly.
-<br>
-## 🛠 Tech Arsenal
-* Languages: Java ☕ · Kotlin · TypeScript · Bash
-* Frameworks & Tools: Spring Boot · Bukkit/Spigot/Paper APIs · Redis · Docker
-* Other: CI/CD addict · Cloud infrastructure tinkerer
-<br>
-## 🚀 Current Missions
-* ⚡ Building modular plugin infrastructures for Minecraft networks
-* 🔗 Developing [NextCore](https://github.com/NextForge-Development/NextCore) (core library for NextForge)
-* 🔄 Designing modern replacements for outdated plugin messaging systems
-* 🧪 Experimenting with distributed architectures & caching strategies
-<br>
-## 📊 Contribution Radar
+```ascii
+      __  ___           ______           __     
+     /  |/  /___ ______/ ____/___ ______/ /_  __
+    / /|_/ / __ `/ ___/ /   / __ `/ ___/ / / / /
+   / /  / / /_/ (__  ) /___/ /_/ / /  / / /_/ / 
+  /_/  /_/\__,_/____/\____/\__,_/_/  /_/\__, /  
+                                       /____/
+```
+```bash
+root@mzcydev:~# whoami
+mzcydev (he/him)
 
-<br>
-## 🌍 Connect with me
-* 🌐 [Website](https://www.mzcy.dev/)
-* 🐦 [NextForge Discord](https://discord.com/invite/nextforge)
-* 📩 [Send me a mail!](mailto:hello@nextforge.gg)
-<br>
+root@mzcydev:~# cat about.txt
+- IT-Systemelektroniker · Application Developer
+- Based in Germany 🇩🇪
+- Specialized in Minecraft server software & plugin ecosystems
+- Maintainer @ NextForge-Development
+- Motto: "I make, bake and break software."
+
+root@mzcydev:~# cat tech-stack.txt
+Languages:   Java ☕, Kotlin, TypeScript, Bash
+Ecosystem:   Bukkit / Spigot / Paper APIs, Spring Boot, Redis, Docker
+Mindset:     Clean code · Modular architecture · CI/CD first
+
+root@mzcydev:~# cat projects.txt
+- NextCore → Core library for NextForge products
+- NextPluginMessaging → Redis-backed replacement for legacy plugin messaging
+- Experimenting with distributed caching & scalable plugin infrastructures
+
+root@mzcydev:~# ./github-stats.sh
+```
+```bash
+root@mzcydev:~# cat contact.txt
+🌐 https://www.mzcy.dev
+🐙 https://github.com/NextForge-Development
+✉️ mzcy@nextforge.gg
+
+root@mzcydev:~# echo "Code is my battlefield. Clean commits are my tactics. Bugs are the enemy."
+Code is my battlefield. Clean commits are my tactics. Bugs are the enemy.
+```

@@ -12,13 +12,15 @@
 ```bash
 root@mzcydev:~# whoami
 mzcydev (he/him)
+```
 
-root@mzcydev:~# uptime
 <!-- UPTIME-START -->
- 13:37:42 up 1734 days,  214 commits,  load average: 0.42, 0.33, 0.12
+```bash
+root@mzcydev:~# uptime
+```
 <!-- UPTIME-END -->
 
-
+```bash
 root@mzcydev:~# cat about.txt
 - IT-Systemelektroniker · Application Developer
 - Based in Germany 🇩🇪

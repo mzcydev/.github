@@ -1,0 +1,33 @@
+name: Update README uptime
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # jede Stunde
+  workflow_dispatch:      # manuelles Triggern möglich
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate uptime
+        run: |
+          START_DATE="2016-01-01 00:00:00"
+          NOW=$(date -u +"%s")
+          START=$(date -u -d "$START_DATE" +"%s")
+          DIFF=$(( (NOW - START) / 86400 ))
+          echo "UPTIME: ${DIFF} days" > uptime.txt
+
+      - name: Update README
+        run: |
+          UPTIME=$(cat uptime.txt)
+          sed -i "s|root@mzcydev:~# uptime.*|root@mzcydev:~# uptime\n $UPTIME, load average: 0.42, 0.33, 0.12|" README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update uptime"
+          git push

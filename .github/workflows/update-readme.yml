@@ -2,45 +2,66 @@ name: Update Profile README (uptime + repos)
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # alle 6 Stunden
+    - cron: "0 * * * *"   # alle 1 Stunde
   workflow_dispatch:
 
 permissions:
-  contents: write           # << nötig für git push
+  contents: write   # nötig für git push
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
+
+      - name: Sanity check paths (debug)
+        run: |
+          pwd
+          ls -lah
+          ls -lah profile || true
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Update uptime block
         env:
-          FILE: .github/profile/README.md
+          FILE: profile/README.md
+          GH_USER: mzcydev
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          START_DATE="2017-01-01 00:00:00"   # <- anpassen
-          COMMITS="214"                      # <- optional dynamisch machen
-          LOAD="0.42, 0.33, 0.12"
+          # Marker müssen im FILE vorhanden sein
+          test -f "$FILE" || { echo "::error file=$FILE::File not found"; exit 1; }
 
+          START_DATE="2017-01-01"
+
+          # Anzahl Commits über die Search API holen (alle Commits vom User seit START_DATE)
+          COMMITS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/search/commits?q=author:${GH_USER}+author-date:>=${START_DATE}" \
+            -H "Accept: application/vnd.github.cloak-preview" \
+            | jq -r '.total_count')
+
+          # Fallback, falls API nichts liefert
+          [ -z "$COMMITS" ] && COMMITS="0"
+
+          LOAD="0.42, 0.33, 0.12"
           NOW=$(date -u +"%s")
-          START=$(date -u -d "$START_DATE" +"%s") || START=$(date -u -j -f "%Y-%m-%d %H:%M:%S" "$START_DATE" +"%s" 2>/dev/null || echo 0)
+          START=$(date -u -d "$START_DATE" +"%s") || START=0
           DAYS=$(( (NOW - START) / 86400 ))
+
           LINE=" $(date +%H:%M:%S) up ${DAYS} days,  ${COMMITS} commits,  load average: ${LOAD}"
 
-          sed -i "/<!-- UPTIME-START -->/,/<!-- UPTIME-END -->/c\<!-- UPTIME-START -->\n\`\`\`bash\nroot@mzcydev:~# uptime\n$LINE\n\`\`\`\n<!-- UPTIME-END -->" "$FILE"
+          sed -i "/<!-- UPTIME-START -->/,/<!-- UPTIME-END -->/c\<!-- UPTIME-START -->\n\`\`\`bash\nroot@${GH_USER}:~# uptime\n$LINE\n\`\`\`\n<!-- UPTIME-END -->" "$FILE"
+
 
       - name: Update repos block
         env:
-          FILE: .github/profile/README.md
+          FILE: profile/README.md
           GH_USER: mzcydev
         run: |
+          # Marker: <!-- REPOS-START --> ... <!-- REPOS-END -->
+          test -f "$FILE" || { echo "::error file=$FILE::File not found"; exit 1; }
+
           JSON=$(curl -s "https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed")
           NAMES=$(echo "$JSON" | jq -r '.[].name' | head -n 5)
 
@@ -59,6 +80,6 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/profile/README.md
+          git add profile/README.md
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "chore: auto-update uptime & repos"
           git push

@@ -14,16 +14,14 @@ jobs:
 
       - name: Generate uptime
         run: |
-          START_DATE="2016-01-01 00:00:00"
+          START_DATE="2020-01-01 00:00:00"
           NOW=$(date -u +"%s")
           START=$(date -u -d "$START_DATE" +"%s")
           DIFF=$(( (NOW - START) / 86400 ))
-          echo "UPTIME: ${DIFF} days" > uptime.txt
+          UPTIME=" 13:37:42 up ${DIFF} days,  214 commits,  load average: 0.42, 0.33, 0.12"
 
-      - name: Update README
-        run: |
-          UPTIME=$(cat uptime.txt)
-          sed -i "s|root@mzcydev:~# uptime.*|root@mzcydev:~# uptime\n $UPTIME, load average: 0.42, 0.33, 0.12|" README.md
+          # Ersetze Zeile in README.md
+          sed -i "s|root@mzcydev:~# uptime.*|root@mzcydev:~# uptime\n$UPTIME|" README.md
 
       - name: Commit changes
         run: |

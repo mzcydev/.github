@@ -17,11 +17,11 @@ jobs:
           START_DATE="2017-01-01 00:00:00"
           NOW=$(date -u +"%s")
           START=$(date -u -d "$START_DATE" +"%s")
-          DIFF=$(( (NOW - START) / 86400 ))
-          UPTIME=" 13:37:42 up ${DIFF} days,  214 commits,  load average: 0.42, 0.33, 0.12"
-
-          # Ersetze Zeile in README.md
-          sed -i "s|root@mzcydev:~# uptime.*|root@mzcydev:~# uptime\n$UPTIME|" README.md
+          DAYS=$(( (NOW - START) / 86400 ))
+          LINE=" $(date +%H:%M:%S) up ${DAYS} days,  214 commits,  load average: 0.42, 0.33, 0.12"
+      
+          # ganzen Block zwischen den Markern ersetzen (Marker bleiben unsichtbar, weil außerhalb des Codeblocks)
+          sed -i "/<!-- UPTIME-START -->/,/<!-- UPTIME-END -->/c\<!-- UPTIME-START -->\n\`\`\`bash\nroot@mzcydev:~# uptime\n$LINE\n\`\`\`\n<!-- UPTIME-END -->" README.md
 
       - name: Commit changes
         run: |

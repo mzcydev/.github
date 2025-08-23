@@ -6,29 +6,31 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # wichtig für push!
+  contents: write           # << nötig für git push
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Update uptime block
+        env:
+          FILE: .github/profile/README.md
         run: |
-          FILE=".github/profile/README.md"
-
-          START_DATE="2020-01-01 00:00:00"
-          COMMITS="214"   # optional fix oder dynamisch
+          START_DATE="2017-01-01 00:00:00"   # <- anpassen
+          COMMITS="214"                      # <- optional dynamisch machen
           LOAD="0.42, 0.33, 0.12"
 
           NOW=$(date -u +"%s")
-          START=$(date -u -d "$START_DATE" +"%s")
+          START=$(date -u -d "$START_DATE" +"%s") || START=$(date -u -j -f "%Y-%m-%d %H:%M:%S" "$START_DATE" +"%s" 2>/dev/null || echo 0)
           DAYS=$(( (NOW - START) / 86400 ))
           LINE=" $(date +%H:%M:%S) up ${DAYS} days,  ${COMMITS} commits,  load average: ${LOAD}"
 
@@ -36,10 +38,9 @@ jobs:
 
       - name: Update repos block
         env:
+          FILE: .github/profile/README.md
           GH_USER: mzcydev
         run: |
-          FILE=".github/profile/README.md"
-
           JSON=$(curl -s "https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed")
           NAMES=$(echo "$JSON" | jq -r '.[].name' | head -n 5)
 
@@ -50,9 +51,7 @@ jobs:
             OUTPUT="${OUTPUT}\ndrwxr-xr-x  2 ${GH_USER} dev 4.0K ${DATE}  ${R}"
           done <<< "$NAMES"
 
-          if [ -z "$OUTPUT" ]; then
-            OUTPUT="\ndrwxr-xr-x  2 ${GH_USER} dev 4.0K ${DATE}  README.md"
-          fi
+          [ -z "$OUTPUT" ] && OUTPUT="\ndrwxr-xr-x  2 ${GH_USER} dev 4.0K ${DATE}  README.md"
 
           sed -i "/<!-- REPOS-START -->/,/<!-- REPOS-END -->/c\<!-- REPOS-START -->\n\`\`\`bash\nroot@${GH_USER}:~# ls -lah ~/repos/\n$OUTPUT\n\`\`\`\n<!-- REPOS-END -->" "$FILE"
 

@@ -28,19 +28,36 @@ root@mzcydev:~# cat about.txt
 - Specialized in Minecraft server software & plugin ecosystems
 - Maintainer @ NextForge-Development
 - Motto: "I make, bake and break software."
+```
 
+```bash
 root@mzcydev:~# cat tech-stack.txt
 Languages:   Java ☕, Kotlin, TypeScript, Bash
 Ecosystem:   Bukkit / Spigot / Paper APIs, Spring Boot, Redis, Docker
 Mindset:     Clean code · Modular architecture · CI/CD first
+```
 
+```bash
 root@mzcydev:~# cat projects.txt
 - NextCore → Core library for NextForge products
 - NextPluginMessaging → Redis-backed replacement for legacy plugin messaging
 - Experimenting with distributed caching & scalable plugin infrastructures
+```
 
+```bash
 root@mzcydev:~# ./github-stats.sh
 ```
+
+<!-- REPOS-START -->
+```bash
+root@mzcydev:~# ls -lah ~/repos/
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  NextCore
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  NextPluginMessaging
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  SkyMythDE
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 23  SkySlayer
+```
+<!-- REPOS-END -->
+
 ```bash
 root@mzcydev:~# cat contact.txt
 🌐 https://www.mzcy.dev

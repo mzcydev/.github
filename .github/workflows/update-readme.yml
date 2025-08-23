@@ -192,17 +192,39 @@ jobs:
           EOF
           chmod +x scripts/github-stats.sh
 
-      - name: Render github-stats into README
+      - name: Render github-stats into README (robust; no sed)
         env:
           FILE: profile/README.md
           GH_USER: mzcydev
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           test -f "$FILE" || { echo "::error file=$FILE::File not found"; exit 1; }
+      
           OUT="$(GH_USER="$GH_USER" GITHUB_TOKEN="$GITHUB_TOKEN" bash scripts/github-stats.sh)"
-          # Escape / and & for sed
-          OUT_ESCAPED="$(printf '%s' "$OUT" | sed -e 's/[\/&]/\\&/g')"
-          sed -i "/<!-- STATS-START -->/,/<!-- STATS-END -->/c\<!-- STATS-START -->\n\`\`\`bash\n$OUT_ESCAPED\n\`\`\`\n<!-- STATS-END -->" "$FILE"
+      
+          # AWK ersetzt den Inhalt zwischen <!-- STATS-START --> und <!-- STATS-END -->
+          # und fügt die Codefence ```bash automatisch mit ein.
+          awk -v payload="$OUT" '
+            BEGIN{inblk=0}
+            {
+              if ($0 ~ /<!-- STATS-START -->/) {
+                print $0
+                print "```bash"
+                print payload
+                print "```"
+                inblk=1
+                next
+              }
+              if (inblk && $0 ~ /<!-- STATS-END -->/) {
+                print $0
+                inblk=0
+                next
+              }
+              if (inblk) next
+              print
+            }' "$FILE" > "$FILE.tmp" && mv "$FILE.tmp" "$FILE"
+
 
       - name: Commit & push
         run: |

@@ -14,7 +14,7 @@ jobs:
 
       - name: Generate uptime
         run: |
-          START_DATE="2020-01-01 00:00:00"
+          START_DATE="2017-01-01 00:00:00"
           NOW=$(date -u +"%s")
           START=$(date -u -d "$START_DATE" +"%s")
           DIFF=$(( (NOW - START) / 86400 ))

@@ -2,7 +2,7 @@ name: Update Profile README (uptime + repos + stats)
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # alle 6 Stunden
+    - cron: "0 * * * *"   # alle 1 Stunden
   workflow_dispatch:
 
 permissions:

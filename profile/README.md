@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 15:05:08 up 3158 days,  828 commits,  load average: 0.42, 0.33, 0.12
+ 16:05:42 up 3158 days,  828 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -54,7 +54,7 @@ root@mzcydev:~# cat projects.txt
 root@mzcydev:~# ./github-stats.sh
 User: mzcydev (mzcydev)
 Followers: 12
-Public Repos: 67
+Public Repos: 68
 Stars (total): 5   Forks (total): 5
 Commits since 2017-01-01: 828
 
@@ -81,10 +81,10 @@ Done.
 root@mzcydev:~# ls -lah ~/repos/
 
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 25  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 25  UnlimitedNametags
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 25  ByteStorm
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 25  CrownCore
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 25  wiki-platform
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 25  Brick-and-Bread-Inc
 ```
 <!-- REPOS-END -->
 

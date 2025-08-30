@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 23:04:46 up 3162 days,  852 commits,  load average: 0.42, 0.33, 0.12
+ 00:18:45 up 3163 days,  852 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -80,11 +80,11 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 29  .github
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 29  UnlimitedNametags
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 29  ByteStorm
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 29  CrownCore
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 29  wiki-platform
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 30  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 30  UnlimitedNametags
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 30  ByteStorm
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 30  CrownCore
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 30  wiki-platform
 ```
 <!-- REPOS-END -->
 

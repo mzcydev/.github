@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 11:04:45 up 3172 days,  894 commits,  load average: 0.42, 0.33, 0.12
+ 12:08:42 up 3172 days,  895 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -54,9 +54,9 @@ root@mzcydev:~# cat projects.txt
 root@mzcydev:~# ./github-stats.sh
 User: mzcydev (mzcydev)
 Followers: 12
-Public Repos: 69
+Public Repos: 70
 Stars (total): 5   Forks (total): 5
-Commits since 2017-01-01: 894
+Commits since 2017-01-01: 895
 
 Top repos by stars:
 ⭐ SpigotFix (2)
@@ -66,7 +66,7 @@ Top repos by stars:
 ⭐ wiki-platform (0)
 
 Top languages (by primary tag):
-• Java (35)
+• Java (36)
 • Python (3)
 • Shell (1)
 • HTML (1)
@@ -80,11 +80,11 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
+drwxr-xr-x  2 mzcydev dev 4.0K Sep 08  AutoOrganizer
 drwxr-xr-x  2 mzcydev dev 4.0K Sep 08  .github
 drwxr-xr-x  2 mzcydev dev 4.0K Sep 08  HackSim
 drwxr-xr-x  2 mzcydev dev 4.0K Sep 08  UnlimitedNametags
 drwxr-xr-x  2 mzcydev dev 4.0K Sep 08  ByteStorm
-drwxr-xr-x  2 mzcydev dev 4.0K Sep 08  CrownCore
 ```
 <!-- REPOS-END -->
 

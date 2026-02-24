@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 12:17:06 up 3341 days,  898 commits,  load average: 0.42, 0.33, 0.12
+ 13:32:28 up 3341 days,  898 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -53,7 +53,7 @@ root@mzcydev:~# cat projects.txt
 ```bash
 root@mzcydev:~# ./github-stats.sh
 User: mzcydev (mzcydev)
-Followers: 15
+Followers: 14
 Public Repos: 70
 Stars (total): 5   Forks (total): 4
 Commits since 2017-01-01: 898

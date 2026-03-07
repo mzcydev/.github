@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 17:06:10 up 3352 days,  905 commits,  load average: 0.42, 0.33, 0.12
+ 18:08:00 up 3352 days,  911 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -56,7 +56,7 @@ User: mzcydev (mzcydev)
 Followers: 13
 Public Repos: 71
 Stars (total): 5   Forks (total): 4
-Commits since 2017-01-01: 905
+Commits since 2017-01-01: 911
 
 Top repos by stars:
 ⭐ SpigotFix (2)
@@ -80,8 +80,8 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
-drwxr-xr-x  2 mzcydev dev 4.0K Mar 07  .github
 drwxr-xr-x  2 mzcydev dev 4.0K Mar 07  InvUI
+drwxr-xr-x  2 mzcydev dev 4.0K Mar 07  .github
 drwxr-xr-x  2 mzcydev dev 4.0K Mar 07  ByteStorm
 drwxr-xr-x  2 mzcydev dev 4.0K Mar 07  AutoOrganizer
 drwxr-xr-x  2 mzcydev dev 4.0K Mar 07  HackSim

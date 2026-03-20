@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 23:09:20 up 3364 days,  969 commits,  load average: 0.42, 0.33, 0.12
+ 00:28:41 up 3365 days,  969 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -80,11 +80,11 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
-drwxr-xr-x  2 mzcydev dev 4.0K Mar 19  .github
-drwxr-xr-x  2 mzcydev dev 4.0K Mar 19  paper-core
-drwxr-xr-x  2 mzcydev dev 4.0K Mar 19  minecraft-docker-cloud
-drwxr-xr-x  2 mzcydev dev 4.0K Mar 19  InvUI
-drwxr-xr-x  2 mzcydev dev 4.0K Mar 19  ByteStorm
+drwxr-xr-x  2 mzcydev dev 4.0K Mar 20  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Mar 20  paper-core
+drwxr-xr-x  2 mzcydev dev 4.0K Mar 20  minecraft-docker-cloud
+drwxr-xr-x  2 mzcydev dev 4.0K Mar 20  InvUI
+drwxr-xr-x  2 mzcydev dev 4.0K Mar 20  ByteStorm
 ```
 <!-- REPOS-END -->
 

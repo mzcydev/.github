@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 07:21:41 up 3463 days,  1070 commits,  load average: 0.42, 0.33, 0.12
+ 09:09:20 up 3463 days,  1070 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 

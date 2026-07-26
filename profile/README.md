@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 11:17:12 up 3493 days,  1188 commits,  load average: 0.42, 0.33, 0.12
+ 13:17:29 up 3493 days,  1187 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -56,7 +56,7 @@ User: mzcydev (mzcydev)
 Followers: 14
 Public Repos: 76
 Stars (total): 5   Forks (total): 4
-Commits since 2017-01-01: 1188
+Commits since 2017-01-01: 1187
 
 Top repos by stars:
 ⭐ SpigotFix (2)
@@ -80,7 +80,11 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
-drwxr-xr-x  2 mzcydev dev 4.0K Jul 26  README.md
+drwxr-xr-x  2 mzcydev dev 4.0K Jul 26  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Jul 26  WorkLog
+drwxr-xr-x  2 mzcydev dev 4.0K Jul 26  ByteStorm-Cloud
+drwxr-xr-x  2 mzcydev dev 4.0K Jul 26  jda-spring-template
+drwxr-xr-x  2 mzcydev dev 4.0K Jul 26  paper-core
 ```
 <!-- REPOS-END -->
 

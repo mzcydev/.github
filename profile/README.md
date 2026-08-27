@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 21:44:01 up 3524 days,  1204 commits,  load average: 0.42, 0.33, 0.12
+ 02:55:26 up 3525 days,  1204 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -80,11 +80,11 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 26  .github
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 26  ezconfig
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 26  pterobeacon
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 26  pterodactyl-auto-server-registry
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 26  WorkLog
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  ezconfig
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  pterobeacon
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  pterodactyl-auto-server-registry
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  WorkLog
 ```
 <!-- REPOS-END -->
 

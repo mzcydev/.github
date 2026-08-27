@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 02:55:26 up 3525 days,  1204 commits,  load average: 0.42, 0.33, 0.12
+ 13:48:18 up 3525 days,  1204 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -54,7 +54,7 @@ root@mzcydev:~# cat projects.txt
 root@mzcydev:~# ./github-stats.sh
 User: mzcydev (mzcydev)
 Followers: 14
-Public Repos: 79
+Public Repos: 80
 Stars (total): 7   Forks (total): 4
 Commits since 2017-01-01: 1204
 
@@ -84,7 +84,7 @@ drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  .github
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  ezconfig
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  pterobeacon
 drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  pterodactyl-auto-server-registry
-drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  WorkLog
+drwxr-xr-x  2 mzcydev dev 4.0K Aug 27  TerraAllay
 ```
 <!-- REPOS-END -->
 

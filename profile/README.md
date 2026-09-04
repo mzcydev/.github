@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 23:46:34 up 3532 days,  1204 commits,  load average: 0.42, 0.33, 0.12
+ 02:59:20 up 3533 days,  1204 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -53,7 +53,7 @@ root@mzcydev:~# cat projects.txt
 ```bash
 root@mzcydev:~# ./github-stats.sh
 User: mzcydev (mzcydev)
-Followers: 14
+Followers: 13
 Public Repos: 80
 Stars (total): 7   Forks (total): 4
 Commits since 2017-01-01: 1204
@@ -80,11 +80,11 @@ Done.
 ```bash
 root@mzcydev:~# ls -lah ~/repos/
 
-drwxr-xr-x  2 mzcydev dev 4.0K Sep 03  .github
-drwxr-xr-x  2 mzcydev dev 4.0K Sep 03  ezconfig
-drwxr-xr-x  2 mzcydev dev 4.0K Sep 03  pterobeacon
-drwxr-xr-x  2 mzcydev dev 4.0K Sep 03  pterodactyl-auto-server-registry
-drwxr-xr-x  2 mzcydev dev 4.0K Sep 03  TerraAllay
+drwxr-xr-x  2 mzcydev dev 4.0K Sep 04  .github
+drwxr-xr-x  2 mzcydev dev 4.0K Sep 04  ezconfig
+drwxr-xr-x  2 mzcydev dev 4.0K Sep 04  pterobeacon
+drwxr-xr-x  2 mzcydev dev 4.0K Sep 04  pterodactyl-auto-server-registry
+drwxr-xr-x  2 mzcydev dev 4.0K Sep 04  TerraAllay
 ```
 <!-- REPOS-END -->
 

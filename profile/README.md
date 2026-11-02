@@ -22,7 +22,7 @@ mzcydev (he/him)
 <!-- UPTIME-START -->
 ```bash
 root@mzcydev:~# uptime
- 07:13:22 up 3592 days,  1161 commits,  load average: 0.42, 0.33, 0.12
+ 17:48:38 up 3592 days,  1224 commits,  load average: 0.42, 0.33, 0.12
 ```
 <!-- UPTIME-END -->
 
@@ -56,7 +56,7 @@ User: mzcydev (mzcydev)
 Followers: 13
 Public Repos: 79
 Stars (total): 8   Forks (total): 4
-Commits since 2017-01-01: 1161
+Commits since 2017-01-01: 1224
 
 Top repos by stars:
 ⭐ SpigotFix (3)
